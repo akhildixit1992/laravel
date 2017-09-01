@@ -88,17 +88,17 @@ class ArticlesController extends \BaseController {
     else
     {
      	   $article = new Article;
-           $article->Name = Input::get('Name');
-           $article->Description= Input::get('Description');
+           $article->Name = Input::get('firstName');
+           $article->Description= Input::get('description');
            $article->URL = Input::get('url');
-           if(Input::hasFile('Img_Path'))
+           if(Input::hasFile('imagePath'))
   			{
- 				$file = Input::file('Img_Path');
+ 				$file = Input::file('imagePath');
 				$filename = time(). '-' . $file->getClientOriginalName();
 				// $file = $file->move(public_path().'/images/', $filename);
 			}
            		$article->Img_Path='/images/'.$filename;
-           		$article->Status = Input::get('Status');
+           		$article->Status = Input::get('status');
           	   $article->save();
           	   if(!$article->save())
           	   {
@@ -138,8 +138,8 @@ class ArticlesController extends \BaseController {
 	{  
 
        	   $article = Article::findOrFail($id);
-       	   $article->Name = Input::get('Name');
-           $article->Description= Input::get('Description');
+       	   $article->Name = Input::get('firstName');
+           $article->Description= Input::get('description');
            $article->URL = Input::get('url');
            if(Input::hasFile('Img'))
   			{
@@ -152,7 +152,7 @@ class ArticlesController extends \BaseController {
 				
 			}
           	$article->Img_Path='/images/'.$article->id.'/'.$filename;
-           $article->Status = Input::get('Status');
+           $article->Status = Input::get('status');
            $article->save();
            if(!$article->save())
            {
@@ -172,7 +172,7 @@ class ArticlesController extends \BaseController {
    {
            // Handle the delete confirmation.
     $article = Article::findOrFail($id);
-     $image_path = public_path().$article->Img_Path;
+     $image_path = public_path().$article->imagePath;
      $image_dir=public_path().'/images/'.$article->id;
       unlink($image_path);
       rmdir($image_dir);

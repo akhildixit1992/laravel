@@ -9,8 +9,8 @@
 
 		   
 		 public static $rules=array(
-     		'Name'             =>'required',
-        		'Description'      =>'required',
+     		'firstName'             =>'required',
+        		'description'      =>'required',
         		'url'    		   =>'required|url'
    		 );	      	
 

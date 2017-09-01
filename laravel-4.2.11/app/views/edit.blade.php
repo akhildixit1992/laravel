@@ -5,18 +5,18 @@
 </div>
 	<form action="{{route('edit',$getarticle->id)}}" method="post" role="form" enctype="multipart/form-data" files="true">
           <input type="hidden" name="id" value="">
-		<div class="form-group @if ($errors->has('Name')) has-error @endif">
-                  <label for="Name">Name</label>
-                <input type="text" class="form-control" name="Name" value="{{$getarticle->Name}}" />
-                  @if ($errors->has('Name')) <p class="help-block">{{ $errors->first('Name') }}</p> @endif
+		<div class="form-group @if ($errors->has('firstName')) has-error @endif">
+                  <label for="firstName">Name</label>
+                <input type="text" class="form-control" name="firstName" value="{{$getarticle->Name}}" />
+                  @if ($errors->has('firstName')) <p class="help-block">{{ $errors->first('firstName') }}</p> @endif
         </div>
- 		<div class="form-group @if ($errors->has('Description')) has-error @endif">
-                 <label for="Description">Description</label>
-                  <input type="text" class="form-control" name="Description" value="{{$getarticle->Description}}" />
-                  @if ($errors->has('Description')) <p class="help-block">{{ $errors->first('Description') }}</p> @endif
+ 		<div class="form-group @if ($errors->has('description')) has-error @endif">
+                 <label for="description">Description</label>
+                  <input type="text" class="form-control" name="description" value="{{$getarticle->Description}}" />
+                  @if ($errors->has('description')) <p class="help-block">{{ $errors->first('description') }}</p> @endif
        	 </div>
 		 <div class="form-group @if ($errors->has('url')) has-error @endif">
-                  <label for="URL">URL</label>
+                  <label for="url">URL</label>
                   <input type="text" class="form-control" name="url" value="{{$getarticle->URL}}" />
                   @if ($errors->has('url')) <p class="help-block">{{ $errors->first('url') }}</p> @endif
          </div>
@@ -28,8 +28,8 @@
 
          </div>
          <div class="form-group">
-                  <label for="Status">Status</label>
-                  <select class="form-control" id="Status" name="Status">
+                  <label for="status">Status</label>
+                  <select class="form-control" id="Status" name="status">
                     @foreach($getstatus as $status)
                       <option>{{ $status-> Status}}</option> 
                       @if($status->Status=='Draft')

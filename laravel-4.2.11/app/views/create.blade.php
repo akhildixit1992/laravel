@@ -13,29 +13,29 @@
 </div>-->
 	
 <form action="{{URL::to('create')}}" method="post" role="form" enctype="multipart/form-data" files="true">
-	<div class="form-group @if ($errors->has('Name')) has-error @endif">
-		<label for="Name">Name</label>
-			<input type="text" class="form-control" name="Name" />
-			 @if ($errors->has('Name')) <p class="help-block">{{ $errors->first('Name') }}</p> @endif
+	<div class="form-group @if ($errors->has('firstName')) has-error @endif">
+		<label for="firstName">Name</label>
+			<input type="text" class="form-control" name="firstName" />
+			 @if ($errors->has('firstName')) <p class="help-block">{{ $errors->first('firstName') }}</p> @endif
 	</div>
- 	<div class="form-group @if ($errors->has('Description')) has-error @endif">
- 		<label for="Description">Description</label><br />
- 			<input type="text" class="form-control" name="Description" />
- 			  @if ($errors->has('Description')) <p class="help-block">{{ $errors->first('Description') }}</p> @endif
+ 	<div class="form-group @if ($errors->has('description')) has-error @endif">
+ 		<label for="description">Description</label><br />
+ 			<input type="text" class="form-control" name="description" />
+ 			  @if ($errors->has('description')) <p class="help-block">{{ $errors->first('description') }}</p> @endif
  	</div>
  	<div class="form-group @if ($errors->has('url')) has-error @endif">
- 		<label for="URL">URL</label><br />
+ 		<label for="url">URL</label><br />
 			<input type="text" class="form-control" name="url" />
 			  @if ($errors->has('url')) <p class="help-block">{{ $errors->first('url') }}</p> @endif
 	</div>
 <div class="form-group">
  		<label for="Image">Img_Path</label><br/>
-			<input type="file"  name="Img_Path">
+			<input type="file"  name="imagePath">
 	  </div>
 
-	<div class="form-group >
- 		<label for="Status">Status</label><br />
-			 <select class="form-control" id="Status" name="Status">
+	<div class="form-group" >
+ 		<label for="status">Status</label><br />
+			 <select class="form-control" id="Status" name="status">
 			 		<option>Select to Draft or Publish</option>
         			<option>Draft</option>
         			<option>Published</option>
