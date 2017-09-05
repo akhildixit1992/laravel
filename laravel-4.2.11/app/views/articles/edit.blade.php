@@ -3,7 +3,7 @@
 <div class="page-header" style="border: 1px solid #0077b3;">
 	<h1>Edit Article </h1> 
 </div>
-	<form action="{{route('edit',$getarticle->id)}}" method="post" role="form" enctype="multipart/form-data" files="true">
+	<form action="{{route('articles.edit',$getarticle->id)}}" method="post" role="form" enctype="multipart/form-data" files="true">
           <input type="hidden" name="id" value="">
 		<div class="form-group @if ($errors->has('firstName')) has-error @endif">
                   <label for="firstName">Name</label>

@@ -12,7 +12,7 @@
 	</ul>
 </div>-->
 	
-<form action="{{URL::to('create')}}" method="post" role="form" enctype="multipart/form-data" files="true">
+<form action="{{URL::route('articles.create')}}" method="post" role="form" enctype="multipart/form-data" files="true">
 	<div class="form-group @if ($errors->has('firstName')) has-error @endif">
 		<label for="firstName">Name</label>
 			<input type="text" class="form-control" name="firstName" />

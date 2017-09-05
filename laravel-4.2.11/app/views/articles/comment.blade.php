@@ -3,7 +3,7 @@
 <div class="page-header" style="border: 1px solid #0077b3;">
 	<h1>Leave a Comment!</h1>
 </div>
-<form action="{{route('comment',$commarticle->id)}}" method="POST">
+<form action="{{route('articles.comment',$commarticle->id)}}" method="POST">
 	<input type="hidden" name="post_id" value="" />	
 	
 	<div class="form-group">

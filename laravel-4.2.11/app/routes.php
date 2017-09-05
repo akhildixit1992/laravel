@@ -14,22 +14,22 @@
 // connect with corresponding model.
 Route::model('article', 'Article');
 //route for index page, call index method of controller
- Route::get('/', 'ArticlesController@Index');
+ Route::get('', array('as'=>'', 'uses'=>'ArticlesController@Index'));
 //route for create employee page.
-Route::get('/create',array('as'=>'create', 'uses'=>'ArticlesController@create'));
+Route::get('/articles/create',array('as'=>'articles.create', 'uses'=>'ArticlesController@create'));
 //route for edit employee page.
-Route::get('/edit/{id}', array('as'=>'edit','uses'=>'ArticlesController@edit'));
+Route::get('/articles/edit/{id}', array('as'=>'articles.edit','uses'=>'ArticlesController@edit'));
 //route for delete emplooyee page
- Route::get('/delete/{id}', array('as'=>'delete','uses'=>'ArticlesController@delete'));
+ Route::get('/articles/delete/{id}', array('as'=>'articles.delete','uses'=>'ArticlesController@delete'));
  //route to show particular article
- Route::get('/show/{id}', array('as'=>'show','uses'=>'ArticlesController@show'));
+ Route::get('/articles/show/{id}', array('as'=>'articles.show','uses'=>'ArticlesController@show'));
  
- Route::get('/comment/{id}', array('as'=>'comment','uses'=>'ArticlesController@comment'));
+ Route::get('/articles/comment/{id}', array('as'=>'articles.comment','uses'=>'ArticlesController@comment'));
 // route for form submission call handleCreate method.
 
-Route::post('/create', 'ArticlesController@handleCreate');
+Route::post('articles/create', array('as'=>'articles.create','uses'=>'ArticlesController@handleCreate'));
  //route to handle edit form submission
-Route::post('/edit/{id}', array('as'=>'edit','uses'=>'ArticlesController@handleEdit'));
+Route::post('articles/edit/{id}', array('as'=>'articles.edit','uses'=>'ArticlesController@handleEdit'));
 //route to handle delete.
-Route::post('/delete/{id}', 'ArticlesController@handleDelete');
-Route::post('/comment/{id}', 'ArticlesController@handleComment');
+Route::post('articles/delete/{id}', array('as'=>'articles.delete','uses'=>'ArticlesController@handleDelete'));
+Route::post('articles/comment/{id}', array('as'=>'articles.comment','uses'=>'ArticlesController@handleComment'));

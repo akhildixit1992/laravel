@@ -6,7 +6,7 @@
  	</div>
 				<div class="panel panel-default">
 					 <div class="panel-body">
- 						<a href="{{URL::route('create')}}" class="btn btn-info">Add Article</a>
+ 						<a href="{{URL::route('articles.create')}}" class="btn btn-info">Add Article</a>
  				</div>
  					 </div>
   							
@@ -24,16 +24,16 @@
 <tbody>
 	@foreach($articles as $article)
 		<tr>
-				<td><a href="{{URL::route('show',array('id'=>$article->id))}}" target="_blank">{{$article->Name}}</a></td>
+				<td><a href="{{URL::route('articles.show',array('id'=>$article->id))}}" target="_blank">{{$article->Name}}</a></td>
 				<td>{{$article->Description}}</td>
 				<td><a href="{{URL::to($article->URL)}}" target="_blank">{{$article->URL}}</a></td>
 				<td>{{$article->Img_Path}}</td>
 				<td>{{$article->Status}}</td>
 				
 			<td>
-				<a href="{{URL::route('edit',array('id'=>$article->id))}}" class="btn btn-default">Edit</a>
-				<a href="{{URL::route('delete',array('id'=>$article->id))}}" class="btn btn-danger">Delete</a>
-				<a href="{{URL::route('comment',array('id'=>$article->id))}}" @if($article->Status=='Published') class="btn btn-primary">Comment
+				<a href="{{URL::route('articles.edit',array('id'=>$article->id))}}" class="btn btn-default">Edit</a>
+				<a href="{{URL::route('articles.delete',array('id'=>$article->id))}}" class="btn btn-danger">Delete</a>
+				<a href="{{URL::route('articles.comment',array('id'=>$article->id))}}" @if($article->Status=='Published') class="btn btn-primary">Comment
 				@endif
 				</a>
 			</td>

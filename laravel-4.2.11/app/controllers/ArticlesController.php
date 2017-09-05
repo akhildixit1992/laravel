@@ -10,7 +10,7 @@ class ArticlesController extends \BaseController {
 		$articles = Article::orderBy('updated_at','desc')->get();
 		//$user=Article::orderBy('id','desc')->first();
 		$comments=Comment::all();
-        return View::make('Index', compact('articles','comments'));
+        return View::make('articles.Index', compact('articles','comments'));
 	}
 
 
@@ -21,7 +21,7 @@ class ArticlesController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('create');
+		return View::make('articles.create');
 	}
 
 
@@ -42,7 +42,7 @@ class ArticlesController extends \BaseController {
 	{
 		$showarticle=Article::findOrFail($id);
 		$comments=Comment::all();
-		return View::make('show',compact('showarticle','comments'));	
+		return View::make('articles.show',compact('showarticle','comments'));	
 	}
 
 
@@ -57,20 +57,20 @@ class ArticlesController extends \BaseController {
 	
 	    $getarticle=Article::findOrFail($id);
 	    $getstatus=Article::select('Status')->where('id',$id)->get();
-		return View::make('edit', compact('getarticle','getstatus'));
+		return View::make('articles.edit', compact('getarticle','getstatus'));
 
 	}
 	
 	public function delete($id)
 	{
 		$delarticle=Article::findOrFail($id);
-		return View::make('delete', compact('delarticle'));
+		return View::make('articles.delete', compact('delarticle'));
 	}
     
     public function comment($id)
     {
     	$commarticle=Article::findOrFail($id);
-		return View::make('comment', compact('commarticle'));
+		return View::make('articles.comment', compact('commarticle'));
     }
 
      public function handleCreate( )
@@ -172,7 +172,7 @@ class ArticlesController extends \BaseController {
    {
            // Handle the delete confirmation.
     $article = Article::findOrFail($id);
-     $image_path = public_path().$article->imagePath;
+     $image_path = public_path().$article->Img_Path;
      $image_dir=public_path().'/images/'.$article->id;
       unlink($image_path);
       rmdir($image_dir);
